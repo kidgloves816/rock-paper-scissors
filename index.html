@@ -90,5 +90,47 @@
         return result;
 
     }
+
+    function game() {
+
+        let userWins = 0;
+        let computerWins = 0;
+        let ties = 0;
+        let gamesLeft = 5;
+
+        for (let i=0; i < 5; i++) {
+            let result = singleRound();
+
+            if (result === 0) {
+                gamesLeft--;
+                ties++;
+                console.log('It\'s a tie! The score is ' + userWins + ' - wins for you, to ' + computerWins + ' - computer wins. There are ' + gamesLeft + ' games left.');
+            }
+
+            else if (result === 1) {
+                gamesLeft--;
+                userWins++;
+                console.log('You win! The score is ' + userWins + ' - wins for you, to ' + computerWins + ' - computer wins. There are ' + gamesLeft + ' games left.')
+            }
+
+            else {
+                gamesLeft--;
+                computerWins++;
+                console.log('You lose. The score is ' + userWins + ' - wins for you, to ' + computerWins + ' - computer wins. There are ' + gamesLeft + ' games left.')
+            }
+        }
+
+        if (userWins > computerWins){
+            console.log('You win! The final score is ' + userWins + ' - ' + computerWins + '. There were ' + ties + ' ties.');
+        }
+
+        else if (computerWins > userWins){
+            console.log('You lose. The final score is ' + userWins + ' - ' + computerWins + '. There were ' + ties + ' ties.');
+        }
+
+        else {
+            console.log('You tied! The final score is ' + userWins + ' - ' + computerWins + '. There were ' + ties + ' ties.');
+        }
+    }
 </script>
 </html>
