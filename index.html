@@ -16,7 +16,7 @@
 
 <script>
 
-    const button = document.querySelectorAll('button');
+    const buttons = document.querySelectorAll('button');
 
     function computerPlay() {
         const choices = ['rock', 'paper', 'scissors'];
@@ -32,7 +32,7 @@
         computerSelection = computerPlay();
         
 
-        userSelection = prompt('Rock, Paper, or Scissors (not case-sensitive)').toLowerCase();
+        userSelection = this.classList.value; //user selection will come from the class of the button pressed
 
         if (userSelection === 'rock') {
             if (computerSelection === 'rock') {
@@ -97,7 +97,11 @@
 
     }
 
-    
+    // function logText(e) {
+    //     console.log(this.classList.value);
+    // }
+
+    buttons.forEach(button => button.addEventListener('click',singleRound));
 
     // function game() {
 
