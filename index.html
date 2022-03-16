@@ -8,8 +8,6 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    
-
     <div class="buttons">
         <button class="rock">Rock</button>
         <button class="paper">Paper</button>
@@ -22,13 +20,7 @@
     const buttons = document.querySelectorAll('button');
 
     const winner = document.querySelector('.result');
-    function userWins() {
-        winner.textContent = "You win!";}
-    function userLoss() {
-        winner.textContent = "You lose bruh";}
-    function tie() {
-        winner.textContent = "It\'s a tie";
-    }
+    
 
 
     function computerPlay() {
@@ -46,21 +38,30 @@
 
         userSelection = this.classList.value; //user selection will come from the class of the button pressed
 
-        
+        function userWins(computerSelection) {
+            winner.textContent = 'You win! Computer selected ' + computerSelection;}
+
+        function userLoss(computerSelection) {
+            winner.textContent = "You lose bruh. Computer selected " + computerSelection;}
+            
+        function tie(computerSelection) {
+            winner.textContent = "It\'s a tie. Computer selected " + computerSelection;}
 
         if (userSelection === 'rock') {
+
+        
             if (computerSelection === 'rock') {
-                tie();
+                tie(computerSelection);
                 result = 0
             }
 
             else if (computerSelection === 'paper') {
-                userLoss();
+                userLoss(computerSelection);
                 result = 2;
             }
 
             else {
-                userWins();
+                userWins(computerSelection);
                 result = 1
             }
             console.log('computer selected ' + computerSelection);
@@ -69,17 +70,17 @@
 
         else if (userSelection === 'paper') {
             if (computerSelection === 'rock') {
-                userWins();
+                userWins(computerSelection);
                 result = 1;
             }
 
             else if (computerSelection === 'paper') {
-                tie();
+                tie(computerSelection);
                 result = 0;
             }
 
             else {
-                userLoss()
+                userLoss(computerSelection)
                 result = 2;
             }
             console.log('computer selected ' + computerSelection);
@@ -87,17 +88,17 @@
 
         else {                         //scissors case
             if (computerSelection === 'paper') {
-                userWins();
+                userWins(computerSelection);
                 result = 1;
             }
 
             else if (computerSelection === 'scissors') {
-                tie();
+                tie(computerSelection);
                 result = 0;
             }
 
             else {
-                userLoss();
+                userLoss(computerSelection);
                 result = 2;
             }
 
