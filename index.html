@@ -5,18 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <button class="rock">Rock</button>
+    
 
-    <button class="paper">Paper</button>
-
-    <button class="scissors">Scissors</button>
+    <div class="buttons">
+        <button class="rock">Rock</button>
+        <button class="paper">Paper</button>
+        <button class="scissors">Scissors</button>
+    </div>
+    <div class="result"></div>
 </body>
 
 <script>
-
     const buttons = document.querySelectorAll('button');
+
+    const winner = document.querySelector('.result');
+    function userWins() {
+        winner.textContent = "You win!";}
+    function userLoss() {
+        winner.textContent = "You lose bruh";}
+    function tie() {
+        winner.textContent = "It\'s a tie";
+    }
+
 
     function computerPlay() {
         const choices = ['rock', 'paper', 'scissors'];
@@ -25,7 +38,6 @@
     }
 
     function singleRound(computerSelection, userSelection) {
-        let resultText;
         let result; //value of 0 is a tie, value of 1 is user win, and value of 2 is computer win
 
         
@@ -34,62 +46,61 @@
 
         userSelection = this.classList.value; //user selection will come from the class of the button pressed
 
+        
+
         if (userSelection === 'rock') {
             if (computerSelection === 'rock') {
-                resultText = 'It\'s a tie';
+                tie();
                 result = 0
             }
 
             else if (computerSelection === 'paper') {
-                resultText = 'It\'s a loss';
+                userLoss();
                 result = 2;
             }
 
             else {
-                resultText = "You win!";
+                userWins();
                 result = 1
             }
-            console.log(resultText);
             console.log('computer selected ' + computerSelection);
             
         }
 
         else if (userSelection === 'paper') {
             if (computerSelection === 'rock') {
-                resultText = 'You win!';
+                userWins();
                 result = 1;
             }
 
             else if (computerSelection === 'paper') {
-                resultText = 'It\'s a tie';
+                tie();
                 result = 0;
             }
 
             else {
-                resultText = 'You lose';
+                userLoss()
                 result = 2;
             }
-            console.log(resultText);
             console.log('computer selected ' + computerSelection);
         }
 
         else {                         //scissors case
             if (computerSelection === 'paper') {
-                resultText = 'You win';
+                userWins();
                 result = 1;
             }
 
             else if (computerSelection === 'scissors') {
-                resultText = 'It\'s a tie';
+                tie();
                 result = 0;
             }
 
             else {
-                resultText = 'You lose';
+                userLoss();
                 result = 2;
             }
 
-            console.log(resultText);
             console.log('computer selected ' + computerSelection);
         }
 
