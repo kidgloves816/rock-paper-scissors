@@ -1,0 +1,22 @@
+/* .container {
+    display: flex;
+    justify-content: space-between;
+    justify-self: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+.scoreBoard {
+    display: flex;
+    align-self: center;
+}
+
+.messageBoard {
+    display: flex;
+    justify-self: flex-start;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+} */
