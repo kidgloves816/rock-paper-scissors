@@ -30,15 +30,10 @@
 
 <script>
     const buttons = document.querySelectorAll('#game');
-
     const resetButton = document.querySelector('.reset')
-
     const winner = document.querySelector('.result');
-
     const userScore = document.querySelector('.userScore');
-
     const computerScore = document.querySelector('.computerScore');
-
     const message = document.querySelector('.messageboard');
 
     let userWins = 0;
@@ -56,38 +51,29 @@
 
     function singleRound(userSelection) {
         let result; //value of 0 is a tie, value of 1 is user win, and value of 2 is computer win
-
-        
         let computerSelection = computerPlay();
 
         function userWin() {
             winner.textContent = 'You win! Computer selected ' + computerSelection;}
-
         function userLoss() {
             winner.textContent = "You lose bruh. Computer selected " + computerSelection;}
-
         function tie() {
             winner.textContent = "It\'s a tie. Computer selected " + computerSelection;}
 
-        if (userSelection === 'rock') {
-
-        
+        if (userSelection === 'rock') {       
             if (computerSelection === 'rock') {
                 tie();
                 result = 0;
             }
-
             else if (computerSelection === 'paper') {
                 userLoss();
                 result = 2;
             }
-
             else {
                 userWin();
                 result = 1;
             }
-            console.log('computer selected ' + computerSelection);
-            
+            console.log('computer selected ' + computerSelection);    
         }
 
         else if (userSelection === 'paper') {
@@ -95,12 +81,10 @@
                 userWin();
                 result = 1;
             }
-
             else if (computerSelection === 'paper') {
                 tie();
                 result = 0;
             }
-
             else {
                 userLoss()
                 result = 2;
@@ -113,17 +97,14 @@
                 userWin();
                 result = 1;
             }
-
             else if (computerSelection === 'scissors') {
                 tie();
                 result = 0;
             }
-
             else {
                 userLoss();
                 result = 2;
             }
-
             console.log('computer selected ' + computerSelection);
         }
 
@@ -150,16 +131,13 @@
     function game() {
         result = singleRound(this.classList.value);
 
-
         while (userWins < 5 && computerWins < 5) {
-
             if (result === 0) {
                 ties++;
                 userScore.textContent = userWins;
                 computerScore.textContent = computerWins;
                 return;
             }
-
             else if (result === 1) {
                 userWins++;
                 userScore.textContent = userWins;
@@ -167,7 +145,6 @@
                 checkScore();
                 return;
             }
-
             else {
                 computerWins++;
                 userScore.textContent = userWins;
@@ -176,13 +153,7 @@
                 return;
             }
         }
-
-        // else {
-        //     message.textContent = 'You tied! The final score is ' + userWins + ' - ' + computerWins + '. There were ' + ties + ' ties.';
-        // }
     }
-
-
 
     function reset() {
         userWins = 0;
@@ -193,7 +164,6 @@
         winner.textContent = 'Score reset';
         message.textContent = '';
     }
-
 
     buttons.forEach(button => button.addEventListener('click',game));
     resetButton.addEventListener('click',reset);
