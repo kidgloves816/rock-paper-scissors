@@ -111,16 +111,16 @@
         return result;
     }
 
-    // function logText(e) {
-    //     console.log(this.classList.value);
-    // }
     function checkScore() {
+        if (ties === 1) tieMessage = '. There was 1 tie';
+        else tieMessage = `. There were ${ties} ties.`;
+
         if (userWins >= 5){
-            message.textContent = 'You win! The final score is ' + userWins + ' - ' + computerWins + '. There were ' + ties + ' ties.';
+            message.textContent = 'You win! The final score is ' + userWins + ' - ' + computerWins + tieMessage;
         }
 
         else if (computerWins >=5){
-            message.textContent = 'You lose. The final score is ' + userWins + ' - ' + computerWins + '. There were ' + ties + ' ties.';
+            message.textContent = 'You lose. The final score is ' + userWins + ' - ' + computerWins + tieMessage;
         }
 
         else {
